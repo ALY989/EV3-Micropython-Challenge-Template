@@ -73,6 +73,13 @@ robot.settings(250, 250, 360, 720)
 #         robot.drive(0, 100)
 #     robot.stop()
 
+def waitUntilButton(button):
+    while (not button in ev3.buttons.pressed()):
+        wait(10)
+
+# Example to wait until center button is pressed:
+# waitUntilButton(Button.CENTER)
+
 # Reorder the missions here to the order you want them to run. 
 # Pass in more parameters to the run function if you need them.
 mission1.run(robot)
