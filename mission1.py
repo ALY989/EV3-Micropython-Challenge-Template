@@ -11,6 +11,35 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # and pass them to the run function from main.py
 # This is the chicken mission
 
-def run(robot):
-    # Put what the robot should do for this mission here. 
-    robot.straight(1000)
+def run(ev3, robot, ultrasonicSensor):
+    # Put what the robot should do for this mission here.
+    ev3 = ev3
+
+    robot = robot
+
+    ultrasonicSensor = ultrasonicSensor
+
+    while True:
+            
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            findObj(ev3, robot, ultrasonicSensor)
+
+    turn(10)
+
+    robot.straight(380)
+
+    robot.drive(100, 60)
+
+        
+
+
+def findObj(ev3, robot, ultrasonicSensor):
+    while ultrasonicSensor.distance() > 250: 
+        ev3.screen.print(ultrasonicSensor.distance())
+        robot.drive(0,120)
+
+def chargeObj(ev3, robot, ultrasonicSensor):
+    while ultrasonicSensor.distance() <= 250: 
+        ev3.screen.print(ultrasonicSensor.distance())
+        robot.drive(10000,0)
