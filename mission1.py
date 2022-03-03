@@ -20,10 +20,15 @@ def run(ev3, robot, ultrasonicSensor):
     ultrasonicSensor = ultrasonicSensor
 
     while True:
+        if ultrasonicSensor.distance():
             
             ev3.screen.print(ultrasonicSensor.distance())
 
             findObj(ev3, robot, ultrasonicSensor)
+        
+        else: 
+
+            break
 
     turn(10)
 
@@ -45,5 +50,5 @@ def chargeObj(ev3, robot, ultrasonicSensor):
     while ultrasonicSensor.distance() <= 250: 
 
         ev3.screen.print(ultrasonicSensor.distance())
-        
+
         robot.drive(10000,0)
