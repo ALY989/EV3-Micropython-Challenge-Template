@@ -23,13 +23,7 @@ def run(ev3, robot, ultrasonicSensor):
             
             ev3.screen.print(ultrasonicSensor.distance())
 
-        if ultrasonicSensor.distance() > 250:
-
             findObj(ev3, robot, ultrasonicSensor)
-
-        else:
-
-            break
 
     turn(10)
 
