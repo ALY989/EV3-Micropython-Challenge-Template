@@ -10,4 +10,5 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 def run(robot):
-    # Put what the robot should do for this mission here. 
+    # Put what the robot should do for this mission here.
+    pass 

@@ -13,3 +13,4 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def run(robot):
     robot.straight(610,0)
     # Put what the robot should do for this mission here. 
+    pass
