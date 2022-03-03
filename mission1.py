@@ -29,9 +29,7 @@ def run(ev3, robot, ultrasonicSensor):
 
     robot.straight(380)
 
-    robot.drive(100, 60)
-
-        
+    robot.drive(100, 60)   
 
 
 def findObj(ev3, robot, ultrasonicSensor):
