@@ -30,7 +30,7 @@ def run(ev3, robot, ultrasonicSensor):
 
             break
 
-    turn(10)
+    robot.turn(10)
 
     robot.straight(380)
 
