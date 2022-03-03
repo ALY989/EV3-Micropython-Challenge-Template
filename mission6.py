@@ -9,5 +9,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
+# Billboard Destruction
 def run(robot):
+    robot.straight(610,0)
     # Put what the robot should do for this mission here. 
