@@ -39,16 +39,12 @@ def run(ev3, robot, ultrasonicSensor):
     start_time = time.time()
     
     current_time = time.time()
-
-    difference = round(start_time - current_time, 2)
     
-    while difference < 5:
+    while start_time - current_time < 5:
         
         robot.drive(100, 60) 
 
         current_time = time.time()
-
-        difference = round(start_time - current_time, 2)
       
 
 def findObj(ev3, robot, ultrasonicSensor):
