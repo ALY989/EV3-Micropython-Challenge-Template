@@ -13,6 +13,6 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def run(robot):
     # Put what the robot should do for this mission here.
     robot.straight(1610)
-    robot.turn(-810)
+    robot.turn(-720)
     robot.straight(-1700)
 
