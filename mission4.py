@@ -12,7 +12,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # Bridge Mission
 def run(robot):
     # Put what the robot should do for this mission here.
-    robot.straight(1400)
+    robot.straight(1420)
     robot.turn(90)
-    robot.straight(200)
+    robot.straight(170)
     robot.turn(-180)
