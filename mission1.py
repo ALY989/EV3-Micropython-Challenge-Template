@@ -27,11 +27,7 @@ def run(ev3, robot, ultrasonicSensor):
 
     robot.straight(500)
 
-
-
-
-
-def findObj(ev3, robot, ultrasonicSensor):
+def findObj(ev3, robot, ultrasonicSensor)
 
     while ultrasonicSensor.distance() > 600: 
 
