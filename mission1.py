@@ -33,7 +33,7 @@ def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
 
     curent_time = time.time()
 
-    while start_time - current_time < 5:
+    while current_time - start_time < 5:
 
         ev3.screen.print(ultrasonicSensor.distance())
 
@@ -63,7 +63,7 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
 
             robot.drive(10000,0)
 
-        return True
+
 
     elif distance is not None and arc==True:
 
@@ -73,7 +73,6 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
 
             robot.drive(10000,60)
 
-        return True
 
     elif seconds is not None and arc==True:
 
@@ -88,8 +87,6 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
             robot.drive(100,60)
 
             current_time = time.time()
-
-        return True
 
     elif seconds is not None and arc==False:
 
