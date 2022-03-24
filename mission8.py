@@ -11,11 +11,17 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # and pass them to the run function from main.py
 # Train
 def run(robot):
-    robot.straight(200)
+    robot.straight(2000)
     robot.turn(90)
-    robot.straight(6000)
+    robot.straight(60000)
     robot.turn(-90)
-    robot.straight(1000)
+    robot.straight(10000)
     robot.straight(-250)
     robot.turn(90)
-    # backwards
+    robot.straight(3000)
+    robot.turn(90)
+    robot.straight(50000)
+    robot.turn(-90)
+    robot.straight(200)
+
+
