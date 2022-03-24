@@ -7,6 +7,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+import time
+
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # This is the chicken mission
@@ -20,26 +22,43 @@ def run(ev3, robot, ultrasonicSensor):
     ultrasonicSensor = ultrasonicSensor
 
     while True:
+        if ultrasonicSensor.distance():
             
             ev3.screen.print(ultrasonicSensor.distance())
 
             findObj(ev3, robot, ultrasonicSensor)
+        
+        else: 
 
-    turn(10)
+            break
+
+    robot.turn(10)
 
     robot.straight(380)
 
-    robot.drive(100, 60)
-
+    start_time = time.time()
+    
+    current_time = time.time()
+    
+    while start_time - current_time < 5:
         
+        robot.drive(100, 60) 
 
+        current_time = time.time()
+      
 
 def findObj(ev3, robot, ultrasonicSensor):
-    while ultrasonicSensor.distance() > 250: 
+
+    while ultrasonicSensor.distance() > 550: 
+
         ev3.screen.print(ultrasonicSensor.distance())
+
         robot.drive(0,120)
 
 def chargeObj(ev3, robot, ultrasonicSensor):
-    while ultrasonicSensor.distance() <= 250: 
+
+    while ultrasonicSensor.distance() <= 550: 
+
         ev3.screen.print(ultrasonicSensor.distance())
+
         robot.drive(10000,0)

@@ -11,5 +11,6 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # and pass them to the run function from main.py
 # Billboard Destruction
 def run(robot):
-    robot.straight(610,0)
-    # Put what the robot should do for this mission here. 
+    robot.straight(610)
+    robot.straight(650)
+
