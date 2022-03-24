@@ -13,7 +13,7 @@ import time
 # and pass them to the run function from main.py
 # This is the chicken mission
 
-def run(ev3, robot, ultrasonicSensor):
+def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
     # Put what the robot should do for this mission here.
     ev3 = ev3
 
@@ -21,13 +21,29 @@ def run(ev3, robot, ultrasonicSensor):
 
     ultrasonicSensor = ultrasonicSensor
 
+    leftMotor = left_motor
+
+    rightMotor = right_motor
+
     findObj(ev3, robot, ultrasonicSensor)
 
     betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
-    robot.straight(500)
+    start_time = time.time()
 
-def findObj(ev3, robot, ultrasonicSensor)
+    curent_time = time.time()
+
+    while start_time - current_time < 5:
+
+        ev3.screen.print(ultrasonicSensor.distance())
+
+        robot.drive(100,60)
+
+        current_time = time.time()
+
+    
+
+def findObj(ev3, robot, ultrasonicSensor):
 
     while ultrasonicSensor.distance() > 600: 
 
