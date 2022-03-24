@@ -21,44 +21,78 @@ def run(ev3, robot, ultrasonicSensor):
 
     ultrasonicSensor = ultrasonicSensor
 
-    while True:
-        if ultrasonicSensor.distance():
-            
-            ev3.screen.print(ultrasonicSensor.distance())
+    findObj(ev3, robot, ultrasonicSensor)
 
-            findObj(ev3, robot, ultrasonicSensor)
-        
-        else: 
+    betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
-            break
+    robot.straight(500)
 
-    robot.turn(10)
 
-    robot.straight(380)
 
-    start_time = time.time()
-    
-    current_time = time.time()
-    
-    while start_time - current_time < 5:
-        
-        robot.drive(100, 60) 
 
-        current_time = time.time()
-      
 
 def findObj(ev3, robot, ultrasonicSensor):
 
-    while ultrasonicSensor.distance() > 550: 
+    while ultrasonicSensor.distance() > 600: 
 
         ev3.screen.print(ultrasonicSensor.distance())
 
         robot.drive(0,120)
 
-def chargeObj(ev3, robot, ultrasonicSensor):
+    return True
 
-    while ultrasonicSensor.distance() <= 550: 
+def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=False):
 
-        ev3.screen.print(ultrasonicSensor.distance())
+    if distance is not None and arc==False:
 
-        robot.drive(10000,0)
+        while ultrasonicSensor.distance() >= distance:
+
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            robot.drive(10000,0)
+
+        return True
+
+    elif distance is not None and arc==True:
+
+        while ultrasonicSensor.distance() >= distance:
+
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            robot.drive(10000,60)
+
+        return True
+
+    elif seconds is not None and arc==True:
+
+        start_time = time.time()
+
+        curent_time = time.time()
+
+        while start_time - current_time < seconds:
+
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            robot.drive(100,60)
+
+            current_time = time.time()
+
+        return True
+
+    elif seconds is not None and arc==False:
+
+        start_time = time.time()
+
+        curent_time = time.time()
+
+        while start_time - current_time < seconds:
+
+            robot.drive(100,0)
+
+            current_time = time.time()
+
+        return True
+
+    else: 
+
+        return True
