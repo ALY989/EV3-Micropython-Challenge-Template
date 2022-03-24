@@ -21,31 +21,9 @@ def run(ev3, robot, ultrasonicSensor):
 
     ultrasonicSensor = ultrasonicSensor
 
-    while True:
-        if ultrasonicSensor.distance():
-            
-            ev3.screen.print(ultrasonicSensor.distance())
+    findObj(ev3, robot, ultrasoniceSensor)
 
-            findObj(ev3, robot, ultrasonicSensor)
-        
-        else: 
-
-            break
-
-    robot.turn(10)
-
-    robot.straight(380)
-
-    start_time = time.time()
-    
-    current_time = time.time()
-    
-    while start_time - current_time < 5:
-        
-        robot.drive(100, 60) 
-
-        current_time = time.time()
-      
+    chargeObj(ev3, robot, ultrasonicSensor) 
 
 def findObj(ev3, robot, ultrasonicSensor):
 
@@ -55,10 +33,51 @@ def findObj(ev3, robot, ultrasonicSensor):
 
         robot.drive(0,120)
 
+    return True
+
 def chargeObj(ev3, robot, ultrasonicSensor):
 
-    while ultrasonicSensor.distance() <= 550: 
+    while ultrasonicSensor.distance() >= 200: 
 
         ev3.screen.print(ultrasonicSensor.distance())
 
         robot.drive(10000,0)
+    
+    return True
+#Only specify either seconds OR distance. It has a predetermined arc.
+def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=False):
+
+    if distance is not None and arc is False:
+        
+        while ultrasonicSensor.distance() >= distance: 
+
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            robot.drive(10000,0)
+
+        return True
+    
+    elif distance is not None and arc is True:
+
+        while ultrasonicSensor.distance() >= distance: 
+
+            ev3.screen.print(ultrasonicSensor.distance())
+
+            robot.drive(10000,60)
+
+        return True
+    
+    elif seconds is not None and arc is True:
+
+        start_time = time.time()
+    
+        current_time = time.time()
+    
+        while start_time - current_time < seconds:
+        
+            robot.drive(100, 60) 
+
+            current_time = time.time()
+
+        return True
+    
