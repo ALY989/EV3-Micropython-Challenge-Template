@@ -31,4 +31,6 @@ def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
 
     m.betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
+    robot.straight(200)
+
     m.betterDrive(ev3, robot, ultrasonicSensor,5,None, True)
