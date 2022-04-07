@@ -36,7 +36,7 @@ center_motor = Motor(Port.D)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
 #Initiliaze sensor
-ultrasonicSensor = UltrasonicSensor(Port.S1)
+#ultrasonicSensor = UltrasonicSensor(Port.S1)
 
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
@@ -88,14 +88,14 @@ def waitUntilButton(button):
 
 # Reorder the missions here to the order you want them to run. 
 # Pass in more parameters to the run function if you need them.mission1.run(robot)
-mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
+#mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
 #mission2.run(robot)
 #mission3.run(robot)
 #mission4.run(robot)
 #mission5.run(robot, central_motor)
 #mission6.run(robot)
 #mission7.run(robot)
-# mission8.run(robot)
+#mission8.run(robot)
 #mission9.run(robot)
 #mission10.run(robot)
 #mission11.run(robot)
