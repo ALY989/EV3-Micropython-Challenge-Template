@@ -14,7 +14,7 @@ def run(robot):
     #hammer.run_target(1000,70)
     robot.straight(1300)
     robot.turn(-90)
-    robot.straight(330)
+    robot.straight(310)
     robot.turn(50)
     hammer.reset_angle(180)
     hammer.run_target(1000,90)
