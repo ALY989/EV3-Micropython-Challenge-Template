@@ -19,11 +19,11 @@ def run(robot, motor):
 
     robot.straight(10)
 
-    motor.run_target(1000, 90)
+    motor.run_target(1000, -90)
 
     robot.straight(-100)
 
-    motor.run_target(1000,-90)
+    motor.run_target(1000, 90)
 
     robot.turn(90)
 
