@@ -14,7 +14,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # Control robot using the robot object https://pybricks.com/ev3-micropython/robotics.html
 # Rule book: https://firstinspiresst01.blob.core.windows.net/first-forward/fll-challenge/fll-challenge-cargo-connect-robot-game-rulebook.pdf
 
-import mission1, mission2, mission3, mission4, mission5, mission6, mission7, mission8, mission9, mission10, mission11, mission12, mission13, mission14, mission15, mission16, mission17, mission18, mission19, mission20
+import mission, mission1, mission2, mission3, mission4, mission5, mission6, mission7, mission8, mission9, mission10, mission11, mission12, mission13, mission14, mission15, mission16, mission17, mission18, mission19
 
 
 # Create your objects here.
@@ -88,7 +88,7 @@ def waitUntilButton(button):
 
 # Reorder the missions here to the order you want them to run. 
 # Pass in more parameters to the run function if you need them.mission1.run(robot)
-#mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
+mission1.mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
 #mission2.run(robot)
 #mission3.run(robot)
 #mission4.run(robot)
