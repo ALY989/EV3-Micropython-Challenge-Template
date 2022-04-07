@@ -12,8 +12,8 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def run(robot):
     hammer= Motor(Port.D)
     #hammer.run_target(1000,70)
-    robot.straight(1100)
-    robot.turn(90)
+    robot.straight(1300)
+    robot.turn(-90)
     robot.straight(330)
     robot.turn(50)
     hammer.reset_angle(180)

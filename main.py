@@ -25,7 +25,7 @@ ev3.speaker.beep()
 # Initialize the motors.
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
-center_motor = Motor(Port.D)
+#center_motor = Motor(Port.D)
 
 # If you want to use more motors, add them here. 
 #arm_motor = Motor(Port.A)
@@ -91,8 +91,8 @@ def waitUntilButton(button):
 #mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
 #mission2.run(robot)
 #mission3.run(robot)
-#mission4.run(robot)
-#mission5.run(robot, central_motor)
+mission5.run(robot)
+#mission5.run(robot)
 #mission6.run(robot)
 #mission7.run(robot)
 #mission8.run(robot)
