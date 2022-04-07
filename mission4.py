@@ -16,8 +16,8 @@ def run(robot):
     robot.turn (-720)
     robot.turn(-90)
     robot.straight(25)
-    robot.turn(180)
-    robot.straight(75)
+    robot.turn(220)
+    robot.straight(125)
    # robot.turn (-720)
     #robot.straight (1700)
     # Put what the robot should do for this mission here. 
