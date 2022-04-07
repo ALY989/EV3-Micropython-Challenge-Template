@@ -87,7 +87,7 @@ def waitUntilButton(button):
 # waitUntilButton(Button.CENTER)
 
 # Reorder the missions here to the order you want them to run. 
-# Pass in more parameters to the run function if you need them.mission1.run(robot)
+# Pass in more parameters to the run function if you need them.
 mission1.mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
 #mission2.run(robot)
 #mission3.run(robot)
