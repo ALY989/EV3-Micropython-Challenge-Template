@@ -25,6 +25,7 @@ ev3.speaker.beep()
 # Initialize the motors.
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
+center_motor = Motor(Port.D)
 
 # If you want to use more motors, add them here. 
 #arm_motor = Motor(Port.A)
