@@ -11,7 +11,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # and pass them to the run function from main.py
 # Bridge Mission
 def run(robot):
-    robot.straight(1610)
+    robot.straight(1550)
     robot.turn(-90)
     robot.straight(25)
     robot.turn(90)
