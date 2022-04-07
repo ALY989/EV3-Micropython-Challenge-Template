@@ -6,74 +6,73 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-
+import time
 # This is the global class for all the missions. functions that can be used for all missions go here.
-class mission:
-    
-    def findObj(ev3, robot, ultrasonicSensor):
 
-        while ultrasonicSensor.distance() > 600: 
+def findObj(ev3, robot, ultrasonicSensor):
+
+    while ultrasonicSensor.distance() > 600: 
+
+        ev3.screen.print(ultrasonicSensor.distance())
+
+        robot.drive(0,120)
+
+    return True
+
+def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=False):
+
+    if distance is not None and arc==False:
+
+        while ultrasonicSensor.distance() >= distance:
 
             ev3.screen.print(ultrasonicSensor.distance())
 
-            robot.drive(0,120)
+            robot.drive(10000,0)
 
         return True
 
-    def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=False):
+    elif distance is not None and arc==True:
 
-        if distance is not None and arc==False:
+        while ultrasonicSensor.distance() >= distance:
 
-            while ultrasonicSensor.distance() >= distance:
+            ev3.screen.print(ultrasonicSensor.distance())
 
-                ev3.screen.print(ultrasonicSensor.distance())
+            robot.drive(10000,60)
 
-                robot.drive(10000,0)
+        return True
 
-            return True
+    elif seconds is not None and arc is True:
+        
+        start_time = time.time()
 
-        elif distance is not None and arc==True:
+        current_time = time.time()
 
-            while ultrasonicSensor.distance() >= distance:
+        while current_time - start_time < seconds:
 
-                ev3.screen.print(ultrasonicSensor.distance())
+            ev3.screen.print(ultrasonicSensor.distance())
 
-                robot.drive(10000,60)
+            robot.drive(100,60)
 
-            return True
+            current_time = time.time()
 
-        elif seconds is not None and arc is True:
-            
-            start_time = time.time()
+        return True
 
-            curent_time = time.time()
+    elif seconds is not None and arc is False:
 
-            while current_time - start_time < seconds:
+        start_time = time.time()
 
-                ev3.screen.print(ultrasonicSensor.distance())
+        curent_time = time.time()
 
-                robot.drive(100,60)
+        while current_time - start_time < seconds:
 
-                current_time = time.time()
+            ev3.screen.print(ultrasonicSensor.distance())
 
-            return True
+            robot.drive(100,60)
 
-        elif seconds is not None and arc is False:
+            current_time = time.time()
 
-            start_time = time.time()
+        return True
 
-            curent_time = time.time()
+    else: 
 
-            while current_time - start_time < seconds:
-
-                ev3.screen.print(ultrasonicSensor.distance())
-
-                robot.drive(100,60)
-
-                current_time = time.time()
-
-            return True
-
-        else: 
-
-            return True
+        return True

@@ -6,29 +6,29 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-
-import time, mission
+import time
+import mission as m
 
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # This is the chicken mission
+ 
+    
+def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
+    # Put what the robot should do for this mission here.
+    
+    ev3 = ev3
 
-class mission1(mission):
+    robot = robot
 
-    def run(self, ev3, robot, ultrasonicSensor, left_motor, right_motor):
-        # Put what the robot should do for this mission here.
-        ev3 = ev3
+    ultrasonicSensor = ultrasonicSensor
 
-        robot = robot
+    leftMotor = left_motor
 
-        ultrasonicSensor = ultrasonicSensor
+    rightMotor = right_motor
 
-        leftMotor = left_motor
+    m.findObj(ev3, robot, ultrasonicSensor)
 
-        rightMotor = right_motor
+    m.betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
-        findObj(ev3, robot, ultrasonicSensor)
-
-        betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
-
-        betterDrive(ev3, robot, ultrasonicSensor,5,None, True)
+    m.betterDrive(ev3, robot, ultrasonicSensor,5,None, True)
