@@ -9,13 +9,14 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # Train
+#icapae
 def run(robot):
-    robot.straight(200)
-    robot.turn(-90)
-    robot.straight(600)
-    robot.turn(90)
     robot.straight(300)
-    robot.straight(-250)
+    robot.turn(-110)
+    robot.straight(630)
+    robot.turn(110)
+    robot.straight(450)
+    robot.straight(-50)
     robot.turn(90)
     robot.straight(300)
     robot.turn(90)
