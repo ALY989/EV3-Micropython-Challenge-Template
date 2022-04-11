@@ -10,7 +10,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 ev3 = EV3Brick()
 # Startup  
 ev3.speaker.beep()
-ev3.screen.print("{} initialized...".format(__name__))
+ev3.screen.print("%s initialized..." %__name__)
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -37,7 +37,8 @@ robot.settings(250, 250, 360, 720)
 #icapae
 def run(ev3, robot):
 
-     ev3.screen.print("Running {} ...".format(__name__))
+    ev3.screen.print("Running %s ..." %__name__)
+
 
     robot.straight(300)
     robot.turn(-110)

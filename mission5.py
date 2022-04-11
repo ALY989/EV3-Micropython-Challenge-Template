@@ -11,7 +11,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 ev3 = EV3Brick()
 # Startup  
 ev3.speaker.beep()
-ev3.screen.print("{} initialized...".format(__name__))
+ev3.screen.print("%s initialized..." %__name__)
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -36,7 +36,7 @@ robot.settings(250, 250, 360, 720)
 # and pass them to the run function from main.py
 def run(ev3, robot, hammer):
 
-     ev3.screen.print("Running {} ...".format(__name__))
+    ev3.screen.print("Running %s ..." %__name__)
 
     #hammer.run_target(1000,70)
     robot.straight(1300)

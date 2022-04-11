@@ -14,7 +14,7 @@ import mission as m
 ev3 = EV3Brick()
 # Startup 
 ev3.speaker.beep()
-ev3.screen.print("{} initialized...".format(__name__))
+ev3.screen.print("%s initialized..." %__name__)
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
