@@ -21,7 +21,7 @@ import mission, mission1, mission2, mission3, mission4, mission5, mission6, miss
 ev3 = EV3Brick()
 # Startup
 ev3.speaker.beep()
-ev3.screen.print(f"{__name__} beginning...")
+ev3.screen.print("{} beginning...".format{__name__})
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
