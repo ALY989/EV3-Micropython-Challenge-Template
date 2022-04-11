@@ -38,5 +38,5 @@ def run(robot):
     robot.straight(610)
     robot.straight(650)
 
-if __name__ == "__main__"::
+if __name__ == "__main__":
     run(robot)
