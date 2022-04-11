@@ -9,9 +9,9 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 import time
 # This is the global class for all the missions. functions that can be used for all missions go here.
 
-def findObj(ev3, robot, ultrasonicSensor):
+def findObj(ev3, robot, ultrasonicSensor, distance):
 
-    while ultrasonicSensor.distance() > 600: 
+    while ultrasonicSensor.distance() > distance: 
 
         ev3.screen.print(ultrasonicSensor.distance())
 
@@ -19,9 +19,9 @@ def findObj(ev3, robot, ultrasonicSensor):
 
     return True
 
-def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=False):
+def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=0):
 
-    if distance is not None and arc==False:
+    if distance is not None and arc == 0:
 
         while ultrasonicSensor.distance() >= distance:
 
@@ -31,17 +31,17 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
 
         return True
 
-    elif distance is not None and arc==True:
+    elif distance is not None and arc != 0:
 
         while ultrasonicSensor.distance() >= distance:
 
             ev3.screen.print(ultrasonicSensor.distance())
 
-            robot.drive(10000,60)
+            robot.drive(10000,arc)
 
         return True
 
-    elif seconds is not None and arc is True:
+    elif seconds is not None and arc != 0:
         
         start_time = time.time()
 
@@ -51,13 +51,13 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
 
             ev3.screen.print(ultrasonicSensor.distance())
 
-            robot.drive(100,60)
+            robot.drive(100,arc)
 
             current_time = time.time()
 
         return True
 
-    elif seconds is not None and arc is False:
+    elif seconds is not None and arc == 0:
 
         start_time = time.time()
 
@@ -67,7 +67,7 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=F
 
             ev3.screen.print(ultrasonicSensor.distance())
 
-            robot.drive(100,60)
+            robot.drive(100,arc)
 
             current_time = time.time()
 
