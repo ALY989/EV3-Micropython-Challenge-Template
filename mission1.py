@@ -10,10 +10,11 @@ import time
 import mission as m
 
 # To be able to run from this file as opposed to from main.
-# Create your objects here.
+# Create your objects here.sd
 ev3 = EV3Brick()
-# Startup Beep
+# Startup 
 ev3.speaker.beep()
+ev3.screen.print(f"{__name__} initialized...")
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -39,6 +40,9 @@ robot.settings(250, 250, 360, 720)
 # This is the chicken mission
     
 def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
+
+    ev3.screen.print(f"Running {__name__} ...")
+
     # Put what the robot should do for this mission here.
     
     ev3 = ev3

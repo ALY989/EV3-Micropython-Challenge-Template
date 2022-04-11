@@ -19,8 +19,9 @@ import mission, mission1, mission2, mission3, mission4, mission5, mission6, miss
 
 # Create your objects here.
 ev3 = EV3Brick()
-# Startup Beep
+# Startup
 ev3.speaker.beep()
+ev3.screen.print(f"{__name__} beginning...")
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -89,22 +90,22 @@ def waitUntilButton(button):
 # Reorder the missions here to the order you want them to run. 
 # Pass in more parameters to the run function if you need them.
 mission1.run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
-mission2.run(robot, center_motor)
-mission3.run(robot)
-mission4.run(robot)
-mission5.run(robot, center_motor)
-mission6.run(robot)
-mission7.run(robot)
-mission8.run(robot)
-mission9.run(robot)
-mission10.run(robot)
-mission11.run(robot)
-mission12.run(robot)
-mission13.run(robot)
-mission14.run(robot)
-mission15.run(robot)
-mission16.run(robot)
-mission17.run(robot)
-mission18.run(robot)
-mission19.run(robot)
-mission20.run(robot)
+mission2.run(ev3, robot, center_motor)
+mission3.run(ev3, robot)
+mission4.run(ev3, robot)
+mission5.run(ev3, robot, center_motor)
+mission6.run(ev3, robot)
+mission7.run(ev3, robot)
+mission8.run(ev3, robot)
+mission9.run(ev3, robot)
+mission10.run(ev3, robot)
+mission11.run(ev3, robot)
+mission12.run(ev3, robot)
+mission13.run(ev3, robot)
+mission14.run(ev3, robot)
+mission15.run(ev3, robot)
+mission16.run(ev3, robot)
+mission17.run(ev3, robot)
+mission18.run(ev3, robot)
+mission19.run(ev3, robot)
+mission20.run(ev3, robot)

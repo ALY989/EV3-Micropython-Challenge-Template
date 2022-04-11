@@ -9,8 +9,9 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # To be able to run from this file as opposed to from main.
 # Create your objects here.
 ev3 = EV3Brick()
-# Startup Beep
+# Startup  
 ev3.speaker.beep()
+ev3.screen.print(f"{__name__} initialized...")
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -34,9 +35,12 @@ robot.settings(250, 250, 360, 720)
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # Billboard Destruction
-def run(robot):
+def run(ev3, robot):
+
+    ev3.screen.print(f"Running {__name__} ...")
+
     robot.straight(610)
     robot.straight(650)
 
 if __name__ == "__main__":
-    run(robot)
+    run(ev3, robot)
