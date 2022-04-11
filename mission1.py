@@ -51,7 +51,7 @@ def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
 
     rightMotor = right_motor
 
-    m.findObj(ev3, robot, ultrasonicSensor)
+    m.findObj(ev3, robot, ultrasonicSensor, 600)
 
     m.betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
