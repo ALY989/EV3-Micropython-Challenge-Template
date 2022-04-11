@@ -41,7 +41,7 @@ robot.settings(250, 250, 360, 720)
     
 def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
 
-    ev3.screen.print("Running {} ...".format(__name__))
+    ev3.screen.print("Running %s ..." %__name__)
 
     # Put what the robot should do for this mission here.
     
