@@ -47,4 +47,5 @@ def run(ev3, robot, hammer):
     hammer.run_target(1000,90)
 
 if __name__ == "__main__":
+    
     run(ev3, robot, center_motor)

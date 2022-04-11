@@ -51,4 +51,5 @@ def run(ev3, robot):
     # Put what the robot should do for this mission here. 
 
 if __name__ == "__main__":
+    
     run(ev3, robot)

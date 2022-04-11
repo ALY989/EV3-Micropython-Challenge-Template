@@ -38,9 +38,9 @@ def run(ev3, robot):
 
     ev3.screen.print("Running %s ..." %__name__)
     
-
     # Put what the robot should do for this mission here. 
     pass
 
 if __name__ == "__main__":
+    
     run(ev3, robot)

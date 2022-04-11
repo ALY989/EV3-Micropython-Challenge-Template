@@ -39,7 +39,6 @@ def run(ev3, robot):
 
     ev3.screen.print("Running %s ..." %__name__)
 
-
     robot.straight(300)
     robot.turn(-110)
     robot.straight(630)
@@ -54,4 +53,5 @@ def run(ev3, robot):
     robot.straight(20)
 
 if __name__ == "__main__":
+    
     run(ev3, robot)

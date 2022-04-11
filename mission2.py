@@ -58,4 +58,5 @@ def run(ev3, robot, motor):
     robot.straight(600)
 
 if __name__ == "__main__":
+    
     run(ev3, robot, center_motor)

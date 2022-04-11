@@ -43,4 +43,5 @@ def run(ev3, robot):
     robot.straight(650)
 
 if __name__ == "__main__":
+    
     run(ev3, robot)
