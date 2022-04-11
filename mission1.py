@@ -12,7 +12,6 @@ import mission as m
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # This is the chicken mission
- 
     
 def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
     # Put what the robot should do for this mission here.
