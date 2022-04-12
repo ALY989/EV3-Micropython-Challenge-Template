@@ -11,6 +11,7 @@ import inspect
 from inspect import currentframe, getframeinfo
 # This is the global class for all the missions. Functions that can be used for all missions go here.
 
+# This is the global class for all the missions. Functions that can be used for all missions go here.Ks
 def findObj(ev3, robot, ultrasonicSensor, distance):
 
     while ultrasonicSensor.distance() > distance: 
