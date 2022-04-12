@@ -86,18 +86,19 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=0
 def format_tuple(value):
     return "(" + ",".join(repr(v) for v in value) + ")"
 
-def test_decorator(ev3, func):
+def test_decorator(func):
     def inner1(*args, **kwargs):
         
         name = func.__name__
         linenumber = inspect.currentframe().f_back.f_lineno
         
-        # Showing user that the function has been executed and the arguments that were passed into it.
+        # Showing user which function is currently executing with what arguments on which line
         ev3.screen.print("Line {}: Executing: {}{}" %(linenumber, name, format_tuple(args))) 
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)
-
+        
+        # Showing user that the function has been executed and the arguments that were passed into it
         ev3.screen.print("Executed: {}{} on line: {}" %(name, format_tuple(args), linenumber))
 		
 		# returning the value to the original frame
