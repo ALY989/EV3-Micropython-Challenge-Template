@@ -86,8 +86,7 @@ def test_decorator(func):
     def inner1(*args, **kwargs):
         
         name = func.__name__
-        print(name)
-        print(inspect.stack())
+        print(inspect.currentframe())
         linenumber = inspect.currentframe().f_back.f_lineno
         
         # Showing user which function is currently executing with what arguments on which line
