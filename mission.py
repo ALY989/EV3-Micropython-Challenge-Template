@@ -9,7 +9,6 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 import time
 import inspect
 from inspect import currentframe, getframeinfo
-# This is the global class for all the missions. Functions that can be used for all missions go here.
 
 # This is the global class for all the missions. Functions that can be used for all missions go here.Ks
 def findObj(ev3, robot, ultrasonicSensor, distance):
@@ -87,6 +86,8 @@ def test_decorator(func):
     def inner1(*args, **kwargs):
         
         name = func.__name__
+        print(name)
+        print(inspect.stack())
         linenumber = inspect.currentframe().f_back.f_lineno
         
         # Showing user which function is currently executing with what arguments on which line
