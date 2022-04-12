@@ -9,11 +9,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 import time
 import inspect
 from inspect import currentframe, getframeinfo
-<<<<<<< HEAD
-# This is the global class for all the missions. functions that can be used for all missions go here.
-=======
 # This is the global class for all the missions. Functions that can be used for all missions go here.
->>>>>>> 12802297aafa0ae8aa84a5217eed76054f7ae0c2
 
 def findObj(ev3, robot, ultrasonicSensor, distance):
 
