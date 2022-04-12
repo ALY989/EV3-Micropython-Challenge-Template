@@ -39,7 +39,7 @@ robot.settings(250, 250, 360, 720)
 # and pass them to the run function from main.py
 # This is the chicken mission
     
-def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
+def run(ev3, robot, ultrasonicSensor):
 
     ev3.screen.print("Running %s ..." %__name__)
 
@@ -59,10 +59,10 @@ def run(ev3, robot, ultrasonicSensor, left_motor, right_motor):
 
     m.betterDrive(ev3, robot, ultrasonicSensor,None,200, False)
 
-    robot.straight(200)
+    m.test_straight(200)
 
     m.betterDrive(ev3, robot, ultrasonicSensor,5,None, True)
 
 if __name__ == "__main__":
     
-    run(ev3, robot, ultrasonicSensor, left_motor, right_motor)
+    run(ev3, robot, ultrasonicSensor)
