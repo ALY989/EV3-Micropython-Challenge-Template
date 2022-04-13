@@ -102,7 +102,7 @@ def waitUntilButton(button):
 # Prints a message. Used at the beginning of each file to know that the file has been imported.
 def startup():
     ev3.speaker.beep()
-    ev3.screen.print("%s Importing..." %__name__)
+    ev3.screen.print("%s Imported" %__name__)
 
 def format_tuple(value):
     return "(" + ",".join(repr(v) for v in value) + ")"
@@ -113,13 +113,13 @@ def test_decorator(func):
         name = func.__name__
         
         # Showing user which function is currently executing with what arguments on which line
-        ev3.screen.print("Executing: %s %s" % (name, format_tuple(args))) 
+        ev3.screen.print("%s %s Start" % (name, format_tuple(args))) 
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)
         
         # Showing user that the function has been executed and the arguments that were passed into it
-        ev3.screen.print("Executed: %s %s" % (name, format_tuple(args)))
+        ev3.screen.print("%s %s Done" % (name, format_tuple(args)))
 		
 		# returning the value to the original frame
         return returned_value
