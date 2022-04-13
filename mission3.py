@@ -12,43 +12,49 @@ import debug as d
 
 
 m.startup()
-
+# Truck mission. Start 3 fingers away from top border of home, as close to the red line as possible
 @test_decorator 
 def run():
 
     m.startup()
 
-    30 degree angle
-
     d.straight(1210)
 
-    d.turn(90)
+    d.turn(-97)
 
-    d.straight(200)
+    d.straight(250)
 
-    d.turn(90)
+    d.turn(-97)
 
     d.run_until_stalled(-1000)
 
     d.reset_angle(0)
 
-    d.run_target(1000, 35)
+    d.run_target(1000, 45)
 
-    d.straight(260)
+    d.straight(270)
 
-    d.straight(-260)
+    d.straight(-230)
 
-    d.turn(90)
+    d.turn(97)
 
-    d.straight(50)
+    d.run_until_stalled(1000)
 
-    d.turn(90)
+    d.straight(150)
 
-    d.straight(260)
+    d.turn(-115)
 
-    d.straight(-260)
+    d.run_until_stalled(-1000)
 
-    d.turn(90)
+    d.reset_angle(0)
+
+    d.run_target(1000, 45)
+
+    d.straight(300)
+
+    d.straight(-300)
+
+    d.turn(97)
 
     # Put what the robot should do for this mission here. 
 
