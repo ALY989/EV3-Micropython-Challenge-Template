@@ -31,6 +31,7 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
+ev3.screen.set_font('Lucida', 8)
 
 
 # Initialize the motors.
