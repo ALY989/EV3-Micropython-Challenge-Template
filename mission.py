@@ -5,7 +5,7 @@ from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
+from pybricks.media.ev3dev import SoundFile, ImageFile, Font
 import time
 
 # The bulk of main.py has been moved here to consolidate things. (Intializing the objects is no longer necessary to do in main)
@@ -31,7 +31,8 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
-ev3.screen.set_font('Lucida', 8)
+tiny_font = Font(size=6)
+ev3.screen.set_font(tiny_font)
 
 
 # Initialize the motors.
