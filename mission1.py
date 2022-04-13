@@ -10,7 +10,6 @@ import time
 from mission import test_decorator
 import mission as m
 import debug as d
-import debug as d
 
 
 m.startup()
@@ -18,6 +17,9 @@ m.startup()
 # This is the chicken mission
 @test_decorator 
 def run():
+
+    m.startup()
+
 
     # Put what the robot should do for this mission here.
 

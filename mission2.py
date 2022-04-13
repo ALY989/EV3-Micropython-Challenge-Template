@@ -16,6 +16,11 @@ m.startup()
 # Crane
 @test_decorator 
 def run():
+
+    m.startup()
+
+
+    m.startup()
     
     d.straight(600)
 
@@ -23,7 +28,7 @@ def run():
 
     d.straight(60)
 
-    m.drag_motor(-130, 1000, 4)
+    m.drag_motor(-130, -1000, 4)
 
     d.reset_angle(0)
 
@@ -42,7 +47,7 @@ def crane2():
 
     d.reset_angle(0)
 
-    m.drag_motor(-300, 1000, 2)
+    m.drag_motor(-300, -1000, 2)
 
 if __name__ == "__main__":
     

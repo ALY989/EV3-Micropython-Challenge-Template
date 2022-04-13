@@ -17,6 +17,9 @@ m.startup()
 @test_decorator
 def run():
 
+    m.startup()
+
+
     d.straight(610)
     d.straight(650)
 

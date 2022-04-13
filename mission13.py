@@ -16,6 +16,9 @@ m.startup()
 @test_decorator
 def run():
 
+    m.startup()
+
+
     pass
 
     # Put what the robot should do for this mission here. 
