@@ -7,8 +7,31 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 import time
-import inspect
-from inspect import currentframe, getframeinfo
+
+# Create your objects here.
+ev3 = EV3Brick()
+# Startup
+ev3.speaker.beep()
+ev3.screen.print("%s Beginning..." %__name__)
+
+# Initialize the motors.
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
+center_motor = Motor(Port.D)
+
+# If you want to use more motors, add them here. 
+#arm_motor = Motor(Port.A)
+
+# Initialize the drive base. 
+# MIGHT WANT TO CHECK TO MAKE SURE THIS IS RIGHT
+# axle_track is distance between the two wheels
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+#Initiliaze sensor
+ultrasonicSensor = UltrasonicSensor(Port.S1)
+
+# settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
+robot.settings(250, 250, 360, 720)
 
 # This is the global class for all the missions. Functions that can be used for all missions go here.Ks
 def findObj(ev3, robot, ultrasonicSensor, distance):
@@ -86,17 +109,16 @@ def test_decorator(func):
     def inner1(*args, **kwargs):
         
         name = func.__name__
-        print(inspect.currentframe())
-        linenumber = inspect.currentframe().f_back.f_lineno
+        linenumber = 0
         
         # Showing user which function is currently executing with what arguments on which line
-        ev3.screen.print("Line {}: Executing: {}{}" %(linenumber, name, format_tuple(args))) 
+        ev3.screen.print("Executing: %s %s" %(linenumber, name, format_tuple(args))) 
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)
         
         # Showing user that the function has been executed and the arguments that were passed into it
-        ev3.screen.print("Executed: {}{} on line: {}" %(name, format_tuple(args), linenumber))
+        ev3.screen.print("Executed: %s %s" %(name, format_tuple(args), linenumber))
 		
 		# returning the value to the original frame
         return returned_value
@@ -104,6 +126,6 @@ def test_decorator(func):
     return inner1
 
 @test_decorator
-def test_straight(robot, distance):
+def test_straight(distance):
 
     robot.straight(distance)

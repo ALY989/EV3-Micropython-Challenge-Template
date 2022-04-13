@@ -37,9 +37,8 @@ robot.settings(250, 250, 360, 720)
 # and pass them to the run function from main.py
 
 # Crane
+@test_decorator 
 def run(ev3, robot, motor):
-
-    ev3.screen.print("Running %s ..." %__name__)
 
     robot.straight(600)
 

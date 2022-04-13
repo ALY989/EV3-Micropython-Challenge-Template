@@ -35,9 +35,8 @@ robot.settings(250, 250, 360, 720)
 # and pass them to the run function from main.py
 # Train
 #icapae
+@test_decorator
 def run(ev3, robot):
-
-    ev3.screen.print("Running %s ..." %__name__)
 
     robot.straight(300)
     robot.turn(-110)

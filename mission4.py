@@ -36,9 +36,8 @@ robot.settings(250, 250, 360, 720)
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # Bridge Mission
+@test_decorator 
 def run(ev3, robot):
-
-    ev3.screen.print("Running %s ..." %__name__)
 
     robot.straight(1610)
     robot.turn (-720)

@@ -34,9 +34,8 @@ robot.settings(250, 250, 360, 720)
 
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
+@test_decorator
 def run(ev3, robot, hammer):
-
-    ev3.screen.print("Running %s ..." %__name__)
 
     #hammer.run_target(1000,70)
     robot.straight(1300)

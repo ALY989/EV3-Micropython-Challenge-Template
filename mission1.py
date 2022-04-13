@@ -38,22 +38,11 @@ robot.settings(250, 250, 360, 720)
 # To be able to use sensors and control individual motors, make them parameters here
 # and pass them to the run function from main.py
 # This is the chicken mission
-    
+
+@test_decorator 
 def run(ev3, robot, ultrasonicSensor):
 
-    ev3.screen.print("Running %s ..." %__name__)
-
     # Put what the robot should do for this mission here.
-    
-    ev3 = ev3
-
-    robot = robot
-
-    ultrasonicSensor = ultrasonicSensor
-
-    leftMotor = left_motor
-
-    rightMotor = right_motor
 
     m.findObj(ev3, robot, ultrasonicSensor, 600)
 
