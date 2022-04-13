@@ -15,18 +15,18 @@ m.startup()
 @test_decorator
 def run():
 
-    m.straight(300)
-    m.turn(-110)
-    m.straight(630)
-    m.turn(110)
-    m.straight(450)
-    m.straight(-50)
-    m.turn(90)
-    m.straight(300)
-    m.turn(90)
-    m.straight(500)
-    m.turn(-90)
-    m.straight(20)
+    d.straight(300)
+    d.turn(-110)
+    d.straight(630)
+    d.turn(110)
+    d.straight(450)
+    d.straight(-50)
+    d.turn(90)
+    d.straight(300)
+    d.turn(90)
+    d.straight(500)
+    d.turn(-90)
+    d.straight(20)
 
 if __name__ == "__main__":
     

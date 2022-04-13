@@ -6,10 +6,9 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile, Font
-import time
 
-import debug as d
-from debug import test_decorator
+# This file contains all of the inbuilt functions for the robot wrapped in the test_decorator.
+
 # Create your objects here.
 ev3 = EV3Brick()
 
@@ -92,105 +91,69 @@ robot.settings(250, 250, 360, 720)
 #         robot.drive(0, 100)
 #     robot.stop()
 
-# This is the global module for all the missions. Functions that can be used for all missions go here.
+def format_tuple(value):
+    return "(" + ",".join(repr(v) for v in value) + ")"
 
-# Prints a message. Used at the beginning of each file to know that the file has been imported.
-@test_decorator
-def startup():
-    d.ev3_beep()
-    d.ev3_print("%s Imported" %__name__)
-
-# "Drags" the motor across a surface. Iterations is how many times you want the motor to make sure that it is touching the surface.
-@test_decorator
-def drag_motor(distance, speed, iterations=3):
-
-    for i in range(iterations):
-
-        distance_per_move = distance/iterations
-
-        d.run_until_stalled(speed)
-
-        d.hold()
-
-        d.straight(distance_per_move)
-
-        i += 1
-
-@test_decorator
-def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
-
-    while ultrasonicSensor.distance() > distance: 
-
-        d.ev3_print(ultrasonicSensor.distance())
-
-        d.drive(0,120)
-
-    return True
-
-# Arc is the second parameter of drive.
-@test_decorator
-def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
-
-    if distance is not None and arc == 0:
-
-        while ultrasonicSensor.distance() >= distance:
-
-            d.ev3_print(ultrasonicSensor.distance())
-
-            d.drive(10000,0)
-
-        return True
-
-    elif distance is not None and arc != 0:
-
-        while ultrasonicSensor.distance() >= distance:
-
-            d.ev3_print(ultrasonicSensor.distance())
-
-            d.drive(10000,arc)
-
-        return True
-
-    elif seconds is not None and arc != 0:
+# Decorator that prints the currently running function to the screen.
+def test_decorator(func):
+    def inner1(*args, **kwargs):
         
-        start_time = time.time()
-
-        current_time = time.time()
-
-        while current_time - start_time < seconds:
-
-            d.ev3_print(ultrasonicSensor.distance())
-
-            d.drive(100,arc)
-
-            current_time = time.time()
-
-        return True
-
-    elif seconds is not None and arc == 0:
-
-        start_time = time.time()
-
-        curent_time = time.time()
-
-        while current_time - start_time < seconds:
-
-            d.ev3_print(ultrasonicSensor.distance())
-
-            d.drive(100,arc)
-
-            current_time = time.time()
-
-        return True
-
-    else: 
-
-        return True
+        name = func.__name__
+        
+        # Showing user which function is currently executing with what arguments on which line
+        ev3.screen.print("%s %s Start" % (name, format_tuple(args))) 
+		
+		# getting the returned value
+        returned_value = func(*args, **kwargs)
+        
+        # Showing user that the function has been executed and the arguments that were passed into it
+        ev3.screen.print("%s %s Done" % (name, format_tuple(args)))
+		
+		# returning the value to the original frame
+        return returned_value
+		
+    return inner1
 
 @test_decorator
-def onButton(button):
-    while (not button in ev3.buttons.pressed()):
-        wait(10)
+def ev3_print(printable):
 
-# Example to wait until center button is pressed:
-# waitUntilButton(Button.CENTER)
+    ev3.screen.print(printable)
+
+def ev3_beep():
+
+    ev3.speaker.beep()
+
+@test_decorator
+def straight(distance):
+
+    robot.straight(distance)
+
+@test_decorator
+def turn(angle):
+
+    robot.turn(angle)
+
+@test_decorator
+def run_target(speed, target_angle):
+
+    center_motor.run_target(speed, target_angle)
+
+@test_decorator
+def reset_angle(angle):
+
+    center_motor.reset_angle(angle)
+
+@test_decorator
+def motor_stop():
+
+    center_motor.stop()
+
+@test_decorator
+def run_until_stalled(speed):
+
+    center_motor.run_until_stalled(speed)
+
+@test_decorator
+def hold():
+
+    center_motor.hold()

@@ -17,12 +17,12 @@ m.startup()
 @test_decorator 
 def run():
 
-    m.straight(1610)
-    m.turn (-720)
-    m.turn(-90)
-    m.straight(25)
-    m.turn(220)
-    m.straight(125)
+    d.straight(1610)
+    d.turn (-720)
+    d.turn(-90)
+    d.straight(25)
+    d.turn(220)
+    d.straight(125)
    # robot.turn (-720)
     #robot.straight (1700)
     # Put what the robot should do for this mission here. 

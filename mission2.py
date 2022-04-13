@@ -8,29 +8,43 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 from mission import test_decorator
 import mission as m
+import debug as d
 
 m.startup()
 
 # Crane
 @test_decorator 
 def run():
+    
+    d.straight(600)
 
-    m.straight(600)
+    d.turn(90)
 
-    m.turn(90)
+    d.straight(60)
 
-    m.straight(50)
+    m.drag_motor(-130, 1000, 4)
 
-    m.run_target(1000, -90)
+    d.reset_angle(0)
 
-    m.straight(-100)
+    d.run_target(1000, 45)
 
-    m.run_target(1000, 45)
+    d.turn(100)
 
-    m.turn(90)
+    d.straight(650)
 
-    m.straight(600)
+    d.motor_stop()
+
+# Code to retrieve package
+def crane2():
+
+    d.straight(300)
+
+    d.reset_angle(0)
+
+    m.drag_motor(-300, 1000, 2)
 
 if __name__ == "__main__":
     
     run()
+    m.onButton(Button.CENTER)
+    crane2()

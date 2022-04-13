@@ -16,12 +16,12 @@ m.startup()
 def run():
 
     #hammer.run_target(1000,70)
-    m.straight(1300)
-    m.turn(-90)
-    m.straight(310)
-    m.turn(50)
-    m.reset_angle(180)
-    m.run_target(1000,90)
+    d.straight(1300)
+    d.turn(-90)
+    d.straight(310)
+    d.turn(50)
+    d.reset_angle(180)
+    d.run_target(1000,90)
 
 if __name__ == "__main__":
     

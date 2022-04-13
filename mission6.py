@@ -16,8 +16,8 @@ m.startup()
 @test_decorator
 def run():
 
-    m.straight(610)
-    m.straight(650)
+    d.straight(610)
+    d.straight(650)
 
 if __name__ == "__main__":
     

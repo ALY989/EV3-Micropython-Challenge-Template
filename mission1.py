@@ -19,13 +19,13 @@ def run():
 
     # Put what the robot should do for this mission here.
 
-    m.findObj(600)
+    dfindObj(600)
 
-    m.betterDrive(None,200, False)
+    dbetterDrive(None,200, False)
 
-    m.straight(200)
+    dstraight(200)
 
-    m.betterDrive(5,None, True)
+    dbetterDrive(5,None, True)
 
 if __name__ == "__main__":
     
