@@ -12,7 +12,7 @@ import time
 ev3 = EV3Brick()
 # Startup
 ev3.speaker.beep()
-ev3.screen.print("%s Beginning..." %__name__)
+ev3.screen.print("%s Imported..." %__name__)
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -33,8 +33,36 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
 
-# This is the global class for all the missions. Functions that can be used for all missions go here.Ks
-def findObj(ev3, robot, ultrasonicSensor, distance):
+# This is the global class for all the missions. Functions that can be used for all missions go here.
+# Prints a message. Used at the beginning of each file to know that the file has been imported.
+def startup():
+    ev3.speaker.beep()
+    ev3.screen.print("%s Imported..." %__name__)
+
+def format_tuple(value):
+    return "(" + ",".join(repr(v) for v in value) + ")"
+
+def test_decorator(func):
+    def inner1(*args, **kwargs):
+        
+        name = func.__name__
+        
+        # Showing user which function is currently executing with what arguments on which line
+        ev3.screen.print("Executing: %s %s" % (name, format_tuple(args))) 
+		
+		# getting the returned value
+        returned_value = func(*args, **kwargs)
+        
+        # Showing user that the function has been executed and the arguments that were passed into it
+        ev3.screen.print("Executed: %s %s" % (name, format_tuple(args)))
+		
+		# returning the value to the original frame
+        return returned_value
+		
+    return inner1
+
+@test_decorator
+def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
     while ultrasonicSensor.distance() > distance: 
 
@@ -44,7 +72,9 @@ def findObj(ev3, robot, ultrasonicSensor, distance):
 
     return True
 
-def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=0):
+# Arc is the second parameter of drive.
+@test_decorator
+def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
     if distance is not None and arc == 0:
 
@@ -102,30 +132,22 @@ def betterDrive(ev3, robot, ultrasonicSensor, seconds=None, distance=None, arc=0
 
         return True
 
-def format_tuple(value):
-    return "(" + ",".join(repr(v) for v in value) + ")"
-
-def test_decorator(func):
-    def inner1(*args, **kwargs):
-        
-        name = func.__name__
-        linenumber = 0
-        
-        # Showing user which function is currently executing with what arguments on which line
-        ev3.screen.print("Executing: %s %s" %(linenumber, name, format_tuple(args))) 
-		
-		# getting the returned value
-        returned_value = func(*args, **kwargs)
-        
-        # Showing user that the function has been executed and the arguments that were passed into it
-        ev3.screen.print("Executed: %s %s" %(name, format_tuple(args), linenumber))
-		
-		# returning the value to the original frame
-        return returned_value
-		
-    return inner1
-
 @test_decorator
-def test_straight(distance):
+def straight(distance):
 
     robot.straight(distance)
+
+@test_decorator
+def turn(angle):
+
+    robot.turn(angle)
+
+@test_decorator
+def run_target(speed, target_angle):
+
+    central_motor.run_target(speed, target_angle)
+
+@test_decorator
+def reset_angle(angle):
+
+    central_motor.reset_angle(angle)
