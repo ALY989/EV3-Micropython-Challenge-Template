@@ -19,13 +19,13 @@ def run():
 
     m.turn(90)
 
-    m.straight(10)
+    m.straight(50)
 
     m.run_target(1000, -90)
 
     m.straight(-100)
 
-    m.run_target(1000, 90)
+    m.run_target(1000, 45)
 
     m.turn(90)
 
