@@ -31,7 +31,7 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
-tiny_font = Font(size=10)
+tiny_font = Font(size=16)
 ev3.screen.set_font(tiny_font)
 
 

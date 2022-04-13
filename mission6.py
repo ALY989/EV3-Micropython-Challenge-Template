@@ -12,7 +12,7 @@ import mission as m
 
 m.startup()
 
-# Billboard Destruction
+# Billboard Destruction #Doesn't work for some reason
 @test_decorator
 def run():
 
