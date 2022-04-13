@@ -134,6 +134,11 @@ def turn(angle):
     robot.turn(angle)
 
 @test_decorator
+def drive(speed, angle):
+
+    robot.drive(speed, angle)
+
+@test_decorator
 def run_target(speed, target_angle):
 
     center_motor.run_target(speed, target_angle)
