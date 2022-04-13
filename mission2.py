@@ -18,17 +18,14 @@ m.startup()
 def run():
 
     m.startup()
-
-
-    m.startup()
     
-    d.straight(600)
+    d.straight(650)
 
     d.turn(90)
 
-    d.straight(60)
+    d.straight(80)
 
-    m.drag_motor(-130, -1000, 4)
+    m.drag_motor(-130, -1000, 10)
 
     d.reset_angle(0)
 
@@ -43,11 +40,11 @@ def run():
 # Code to retrieve package
 def crane2():
 
-    d.straight(300)
+    d.straight(400)
 
     d.reset_angle(0)
 
-    m.drag_motor(-300, -1000, 2)
+    m.drag_motor(-400, -1000, 2)
 
 if __name__ == "__main__":
     

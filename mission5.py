@@ -18,7 +18,6 @@ def run():
 
     m.startup()
 
-
     #hammer.run_target(1000,70)
     d.straight(1300)
     d.turn(-90)
