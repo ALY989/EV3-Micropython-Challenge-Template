@@ -194,3 +194,8 @@ def onButton(button):
 
 # Example to wait until center button is pressed:
 # waitUntilButton(Button.CENTER)
+
+@test_decorator
+def show_dist():
+    while True:
+        ev3.screen.print(ultrasonicSensor.distance())

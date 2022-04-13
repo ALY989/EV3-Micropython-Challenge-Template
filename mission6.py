@@ -13,14 +13,15 @@ import debug as d
 
 m.startup()
 
-# Billboard Destruction #Doesn't work for some reason
+# Billboard Destruction
+# Place five fingers away from right border with the arm downward, but not touching the ground. Move it as close as possible to the red border.
 @test_decorator
 def run():
 
     m.startup()
 
-    d.straight(610)
-    d.straight(650)
+    d.straight(569)
+    d.straight(-650)
 
 if __name__ == "__main__":
     
