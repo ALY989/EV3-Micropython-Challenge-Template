@@ -210,9 +210,9 @@ def turn(angle):
 @test_decorator
 def run_target(speed, target_angle):
 
-    central_motor.run_target(speed, target_angle)
+    center_motor.run_target(speed, target_angle)
 
 @test_decorator
 def reset_angle(angle):
 
-    central_motor.reset_angle(angle)
+    center_motor.reset_angle(angle)
