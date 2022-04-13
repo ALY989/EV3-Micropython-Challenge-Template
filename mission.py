@@ -6,13 +6,11 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-import time
+
+# The bulk of main.py has been moved here to consolidate things. (Intializing the objects is no longer necessary to do in main)
 
 # Create your objects here.
 ev3 = EV3Brick()
-# Startup
-ev3.speaker.beep()
-ev3.screen.print("%s Imported..." %__name__)
 
 # Initialize the motors.
 left_motor = Motor(Port.B)
@@ -33,11 +31,77 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
 
-# This is the global class for all the missions. Functions that can be used for all missions go here.
+
+# Initialize the motors.
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
+center_motor = Motor(Port.D)
+
+# If you want to use more motors, add them here. 
+#arm_motor = Motor(Port.A)
+
+# Initialize the drive base. 
+# MIGHT WANT TO CHECK TO MAKE SURE THIS IS RIGHT
+# axle_track is distance between the two wheels
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+#Initiliaze sensor
+ultrasonicSensor = UltrasonicSensor(Port.S1)
+
+# settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
+robot.settings(250, 250, 360, 720)
+
+# Initialize any sensors you want here by uncommenting and changing the port.
+
+#touch_sensor = TouchSensor(Port.S1)
+# To use touch sensor, pass it in as a parameter in the run function for whichever mission needs it.
+# Example usage:
+# def run(robot, touch_sensor):
+#     # drive forward until the touch sensor is pressed
+#     while !touch_sensor.pressed():
+#         robot.drive(100, 0)
+#     robot.stop()
+
+#color_sensor = ColorSensor(Port.S2)
+# To use color sensor, pass it in as a parameter in the run function for whichever mission needs it.
+# Example usage:
+# def run(robot, color_sensor):
+#     # drive forward until the color sensor sees the color you want
+#     while color_sensor.color() != Color.BLACK:
+#         robot.drive(100, 0)
+#     robot.stop()
+
+#ultrasonic_sensor = UltrasonicSensor(Port.S3)
+# To use ultrasonic sensor, pass it in as a parameter in the run function for whichever mission needs it.
+# Example usage:
+# def run(robot, ultrasonic_sensor):
+#     # drive forward until the ultrasonic sensor sees the distance you want
+#     while ultrasonic_sensor.distance() > 10:
+#         robot.drive(100, 0)
+#     robot.stop()
+
+#gyro_sensor = GyroSensor(Port.S4)
+# To use gyro sensor, pass it in as a parameter in the run function for whichever mission needs it.
+# Example usage:
+# def run(robot, gyro_sensor):
+#     # turn until the gyro sensor sees the angle you want
+#     while gyro_sensor.angle() < 10:
+#         robot.drive(0, 100)
+#     robot.stop()
+
+def waitUntilButton(button):
+    while (not button in ev3.buttons.pressed()):
+        wait(10)
+
+# Example to wait until center button is pressed:
+# waitUntilButton(Button.CENTER)
+
+# This is the global module for all the missions. Functions that can be used for all missions go here.
+
 # Prints a message. Used at the beginning of each file to know that the file has been imported.
 def startup():
     ev3.speaker.beep()
-    ev3.screen.print("%s Imported..." %__name__)
+    ev3.screen.print("%s Importing..." %__name__)
 
 def format_tuple(value):
     return "(" + ",".join(repr(v) for v in value) + ")"
