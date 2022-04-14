@@ -14,17 +14,13 @@ import debug as d
 
 m.startup()
 
-# Chicken Mission. Start anywhere facing the chicken in bottom corner.
+# Chicken Mission. Start facing the chicken in bottom corner.
 @test_decorator 
 def run():
 
     m.startup()
 
-    # Put what the robot should do for this mission here.
-
-    m.findObj(600)
-
-    m.betterDrive(None,200, 0)
+    m.betterDrive(None,150, 0)
 
     d.straight(200)
 

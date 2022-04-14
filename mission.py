@@ -10,6 +10,7 @@ import time
 
 import debug as d
 from debug import test_decorator
+from debug import show_dist
 # Create your objects here.
 ev3 = EV3Brick()
 
@@ -137,13 +138,12 @@ def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
     while ultrasonicSensor.distance() > distance: 
 
-        d.ev3_print(ultrasonicSensor.distance())
-
         robot.drive(0,120)
 
     return True
 
 # Arc is the second parameter of drive.
+@show_dist
 @test_decorator
 def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
@@ -151,7 +151,7 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
 
         while ultrasonicSensor.distance() >= distance:
 
-            d.drive(10000,0)
+            d.ultrasonic_drive(10000,0)
 
         return True
 
@@ -159,7 +159,7 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
 
         while ultrasonicSensor.distance() >= distance:
 
-            d.drive(10000,arc)
+            d.ultrasonic_drive(10000,arc)
 
         return True
 
@@ -171,7 +171,7 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
 
         while current_time - start_time < seconds:
 
-            d.drive(100,arc)
+            d.ultrasonic_drive(100,arc)
 
             current_time = time.time()
 
@@ -185,7 +185,7 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
 
         while current_time - start_time < seconds:
 
-            d.drive(100,arc)
+            d.ultrasonic_drive(100,arc)
 
             current_time = time.time()
 

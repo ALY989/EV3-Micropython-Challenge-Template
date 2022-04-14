@@ -6,6 +6,7 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile, Font
+import time
 
 # This file contains all of the inbuilt functions for the robot wrapped in the test_decorator.
 
@@ -114,6 +115,19 @@ def test_decorator(func):
 		
     return inner1
 
+
+def show_dist(func):
+    def inner1(*args, **kwargs):
+
+        ev3.screen.print(ultrasonicSensor.distance())
+
+        returned_value = func(*args, **kwargs)
+
+        return returned_value
+    
+    return inner1
+
+
 @test_decorator
 def ev3_print(printable):
 
@@ -135,6 +149,11 @@ def turn(angle):
 
 @test_decorator
 def drive(speed, angle):
+
+    robot.drive(speed, angle)
+
+@show_dist
+def ultrasonic_drive(speed, angle):
 
     robot.drive(speed, angle)
 
