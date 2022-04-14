@@ -20,8 +20,8 @@ def run():
 
     #hammer.run_target(1000,70)
     d.straight(1300)
-    d.turn(-90)
-    d.straight(310)
+    d.turn(-95)
+    d.straight(500)
     d.turn(50)
     d.reset_angle(180)
     d.run_target(1000,90)
