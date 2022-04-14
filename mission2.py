@@ -14,7 +14,7 @@ import debug as d
 m.startup()
 
 # Crane
-# Start 3-5 fingers away from the top border of home, as close to red line as possible.
+# Start 3-5 fingers away from the top border of home, as close to red line as possible, motor up.
 @test_decorator 
 def run():
 

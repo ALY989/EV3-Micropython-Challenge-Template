@@ -14,7 +14,7 @@ import debug as d
 
 m.startup()
 
-# This is the chicken mission
+# Chicken Mission. Start anywhere facing the chicken in bottom corner.
 @test_decorator 
 def run():
 
@@ -28,7 +28,7 @@ def run():
 
     d.straight(200)
 
-    m.betterDrive(5,None, True)
+    m.betterDrive(10,None, 60)
 
 if __name__ == "__main__":
     

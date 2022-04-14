@@ -12,7 +12,7 @@ import debug as d
 
 
 m.startup()
-# Truck mission. Start 3 fingers away from top border of home, as close to the red line as possible
+# Truck mission. Start 3 fingers away from top border of home, as close to the red line as possible, motor up.
 @test_decorator 
 def run():
 

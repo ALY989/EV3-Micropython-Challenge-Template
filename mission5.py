@@ -12,7 +12,7 @@ import debug as d
 
 
 m.startup()
-# Truck and Plane
+# Truck and Plane. Start three fingers away from top border, as close to red line as possible, motor up.
 @test_decorator
 def run():
 
@@ -23,6 +23,7 @@ def run():
     d.turn(-95)
     d.straight(400)
     d.turn(55)
+    d.straight(-10)
     d.reset_angle(180)
     d.run_until_stalled(-1000)
 
