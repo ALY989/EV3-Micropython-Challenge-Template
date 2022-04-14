@@ -23,9 +23,8 @@ def run():
     d.turn(-95)
     d.straight(400)
     d.turn(60)
-    d.straight(-10)
     d.reset_angle(180)
-    d.run_until_stalled(1000)
+    d.run_until_stalled(-1000)
 
 if __name__ == "__main__":
     

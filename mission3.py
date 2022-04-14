@@ -40,7 +40,7 @@ def run():
 
     d.run_until_stalled(1000)
 
-    d.straight(150)
+    d.straight(125)
 
     d.turn(-115)
 
