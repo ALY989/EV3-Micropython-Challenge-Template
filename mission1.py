@@ -20,7 +20,6 @@ def run():
 
     m.startup()
 
-
     # Put what the robot should do for this mission here.
 
     m.findObj(600)

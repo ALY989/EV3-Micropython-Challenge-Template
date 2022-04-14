@@ -34,7 +34,7 @@ def run():
 
     d.turn(100)
 
-    d.straight(650)
+    d.straight(700)
 
     d.motor_stop()
 
