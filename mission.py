@@ -123,7 +123,7 @@ def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
         d.ev3_print(ultrasonicSensor.distance())
 
-        d.drive(0,120)
+        robot.drive(0,120)
 
     return True
 
@@ -135,8 +135,6 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
 
         while ultrasonicSensor.distance() >= distance:
 
-            d.ev3_print(ultrasonicSensor.distance())
-
             d.drive(10000,0)
 
         return True
@@ -144,8 +142,6 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
     elif distance is not None and arc != 0:
 
         while ultrasonicSensor.distance() >= distance:
-
-            d.ev3_print(ultrasonicSensor.distance())
 
             d.drive(10000,arc)
 
@@ -158,8 +154,6 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
         current_time = time.time()
 
         while current_time - start_time < seconds:
-
-            d.ev3_print(ultrasonicSensor.distance())
 
             d.drive(100,arc)
 
@@ -174,8 +168,6 @@ def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultras
         curent_time = time.time()
 
         while current_time - start_time < seconds:
-
-            d.ev3_print(ultrasonicSensor.distance())
 
             d.drive(100,arc)
 

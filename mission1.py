@@ -24,11 +24,11 @@ def run():
 
     m.findObj(600)
 
-    m.betterDrive(None,200, False)
+    m.betterDrive(None,200, 0)
 
     d.straight(200)
 
-    m.betterDrive(10,None, 60)
+    m.betterDrive(10,None, 0)
 
 if __name__ == "__main__":
     

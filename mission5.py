@@ -23,7 +23,7 @@ def run():
     d.turn(-95)
     d.straight(400)
     d.turn(55)
-    d.straight(-10)
+    d.straight(-30)
     d.reset_angle(180)
     d.run_until_stalled(-1000)
 
