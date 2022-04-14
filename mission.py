@@ -116,6 +116,22 @@ def drag_motor(distance, speed, iterations=3):
 
         i += 1
 
+# Positive bangs downward, negatives bang upward
+@test_decorator
+def bang(speed, iterations):
+
+    d.run_until_stalled(1000)
+
+    for i in range(iterations):
+
+        d.run_until_stalled(-speed)
+
+        d.run_until_stalled(speed)
+
+        i += 1
+    
+    d.run_until_stalled(1000)
+
 @test_decorator
 def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 

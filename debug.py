@@ -162,3 +162,8 @@ def run_until_stalled(speed):
 def hold():
 
     center_motor.hold()
+
+@test_decorator
+def run_time(speed, milliseconds):
+
+    center_motor.run_time(speed, milliseconds)
