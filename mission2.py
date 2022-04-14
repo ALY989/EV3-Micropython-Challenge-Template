@@ -45,7 +45,7 @@ def crane2():
 
     d.reset_angle(0)
 
-    m.drag_motor(-400, -1000, 2)
+    m.drag_motor(-400, -1000, 10)
 
 if __name__ == "__main__":
     

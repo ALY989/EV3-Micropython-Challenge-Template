@@ -48,7 +48,7 @@ def run():
 
     d.reset_angle(0)
 
-    d.run_target(1000, 45)
+    d.run_target(1000, 35)
 
     d.straight(300)
 
