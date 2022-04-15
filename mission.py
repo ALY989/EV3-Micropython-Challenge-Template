@@ -142,64 +142,33 @@ def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
     return True
 
-def timed_drive()
+@show_dist
+def timed_drive(speed, seconds, arc=0):
     start_time = time.time()
 
     curent_time = time.time()
 
     while current_time - start_time < seconds:
 
-        robot.drive(100,arc)
+        robot.drive(speed,arc)
 
         current_time = time.time()
 
 # Arc is the second parameter of drive.
 @test_decorator
-def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
+def betterDrive(speed, seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
-    if distance is not None and arc == 0:
-
-        while ultrasonicSensor.distance() >= distance:
-
-            d.ultrasonic_drive(10000,0)
-
-        return True
-
-    elif distance is not None and arc != 0:
+    if distance is not None:
 
         while ultrasonicSensor.distance() >= distance:
 
-            d.ultrasonic_drive(10000,arc)
+            d.ultrasonic_drive(speed,arc)
 
         return True
 
-    elif seconds is not None and arc != 0:
+    elif seconds is not None:
         
-        start_time = time.time()
-
-        current_time = time.time()
-
-        while current_time - start_time < seconds:
-
-            d.ultrasonic_drive(100,arc)
-
-            current_time = time.time()
-
-        return True
-
-    elif seconds is not None and arc == 0:
-
-        start_time = time.time()
-
-        curent_time = time.time()
-
-        while current_time - start_time < seconds:
-
-            d.ultrasonic_drive(100,arc)
-
-            current_time = time.time()
-
-        return True
+        timed_drive(speed, seconds, arc)
 
     else: 
 
