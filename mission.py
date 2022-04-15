@@ -142,8 +142,18 @@ def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
     return True
 
+def timed_drive()
+    start_time = time.time()
+
+    curent_time = time.time()
+
+    while current_time - start_time < seconds:
+
+        robot.drive(100,arc)
+
+        current_time = time.time()
+
 # Arc is the second parameter of drive.
-@show_dist
 @test_decorator
 def betterDrive(seconds=None, distance=None, arc=0, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 
