@@ -18,8 +18,9 @@ def run():
 
     m.startup()
     
-    d.straight(500)
-    d.turn(90)
+    d.straight(700)
+    d.turn(80)
+    d.straight(800)
 
 if __name__ == "__main__":
     
