@@ -153,6 +153,8 @@ def timed_drive(speed, seconds, arc=0):
         robot.drive(speed,arc)
 
         current_time = time.time()
+    
+    return True
 
 # Arc is the second parameter of drive.
 @test_decorator
