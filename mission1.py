@@ -20,11 +20,11 @@ def run():
 
     m.startup()
 
-    m.betterDrive(10000, None,150, 0)
+    m.betterDrive(10000, None, 150)
 
     d.straight(200)
 
-    m.betterDrive(10000, 10,None, 0)
+    m.betterDrive(10000, 10)
 
 if __name__ == "__main__":
     
