@@ -12,7 +12,7 @@ import debug as d
 
 m.startup()
 
-# Train
+# Train. Place angled toward the train. No consistent way to place it, just eyeball it.
 @test_decorator
 def run():
 
