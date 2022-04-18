@@ -146,7 +146,7 @@ def findObj(distance, ev3=ev3, robot=robot, ultrasonicSensor=ultrasonicSensor):
 def timed_drive(speed, seconds, arc=0):
     start_time = time.time()
 
-    curent_time = time.time()
+    current_time = time.time()
 
     while current_time - start_time < seconds:
 
