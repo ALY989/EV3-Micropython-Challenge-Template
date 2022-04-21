@@ -54,6 +54,8 @@ ultrasonicSensor = UltrasonicSensor(Port.S1)
 # settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration
 robot.settings(250, 250, 360, 720)
 
+data = DataLog("Time", "Line", "Distance", "Angle", extension="txt")
+
 # Initialize any sensors you want here by uncommenting and changing the port.
 
 #touch_sensor = TouchSensor(Port.S1)
@@ -103,6 +105,7 @@ def test_decorator(func):
         
         # Showing user which function is currently executing with what arguments on which line
         ev3.screen.print("%s %s Start" % (name, format_tuple(args))) 
+        data.log(time.time(),"%s %s" % (name, format_tuple(args), robot.distance(),robot.angle())
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)
