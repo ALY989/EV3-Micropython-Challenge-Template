@@ -1,0 +1,48 @@
+from pybricks.hubs import EV3Brick
+from abc import ABCmeta, abstractmethod
+# Command Design Pattern implementation using the EV3 class as the reciever.
+
+# Abstract Command class for all robot commands.
+class EV3commands(meta=ABCmeta):
+
+    @staticmethod
+    @abstractmethod
+    def execute():
+
+        pass
+    
+    def undo():
+
+        pass
+
+class EV3Print(EV3commands):
+
+    def __init__(self, ev3):
+
+        self._ev3 = ev3
+    
+    def execute(self, printable):
+
+        self._ev3.screen.print(printable)
+    
+    def undo(self):
+
+        # Can't undo a print statement, so we pass.
+
+        pass
+
+class EV3Beep(EV3commands):
+
+    def __init__(self, ev3):
+
+        self._ev3 = ev3
+    
+    def execute(self):
+
+        self._ev3.screen.beep()
+    
+    def undo(self):
+
+        # Can't undo a beep statement, so we pass.
+
+        pass
