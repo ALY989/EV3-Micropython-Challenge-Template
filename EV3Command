@@ -46,3 +46,83 @@ class EV3Beep(EV3commands):
         # Can't undo a beep statement, so we pass.
 
         pass
+
+# The invoker runs the commands, but has added functionality, like undo/redo/replay etc.
+class EV3Invoker:
+
+    def __init__(self):
+
+        self._commands = {} # A dictionary of the commands that this will run.
+    
+        self._history = [] # A stack of all the commands ran.
+    
+    def show_history(self):
+
+        for row in self._history:
+
+            print(f"{datetime.fromtimestamp(row[0]).strftime('%H:%M:%S')}", f" : {row[1]}")
+    
+    def register(self, command_name, command):
+
+        self._commands[command_name] = command
+    
+    def execute(self, command_name):
+
+        if command_name in self._commands.keys():
+
+            self._commands[command_name].execute()
+
+            self._history.append((time.time(), command_name))
+
+        else:
+
+            print(f"Command [{command_name}] not recognized")
+
+    def undo(self, command_name):
+
+        if command_name in self._commands.keys():
+
+            self._commands[command_name].undo()
+
+            self._history.append((time.time(), command_name))
+
+        else:
+
+            print(f"Command [{command_name}] not recognized or the command cannot be undone")
+    
+     def replay_last(self, number_of_commands=1):
+
+        """Replay the last N commands"""
+
+        commands = self._history[-number_of_commands:]
+
+        print(f"Commands in in the replay array is: {commands}")
+
+        for command in commands:
+
+            print(f"Item the loop is looking at: {command}")
+
+            # The below line will just replay the code, it will not be logged in history
+            # self._commands[command[1]].execute()
+
+            self.execute(command[1])  # The command will be replayed and the action will be logged as itself. 
+
+    def undo_last(self, number_of_commands=1):
+
+        """Redoes the last N commands"""
+
+        commands = self._history[-number_of_commands:]
+
+        print(f"Commands in in the undo array is: {commands}")
+
+        for command in commands:
+
+            print(f"Item the loop is looking at: {command}")
+            # The below line will just undo the code, it will not be logged in history
+            # self._commands[command[1]].undo()
+
+            self.undo(command[1])  # The command will be undone and the action will be logged as itself
+
+
+
+
