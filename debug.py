@@ -6,7 +6,6 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile, Font
-import datetime
 import time
 
 # This file contains all of the inbuilt functions for the robot wrapped in the test_decorator.
@@ -106,7 +105,7 @@ def test_decorator(func):
         
         # Showing user which function is currently executing with what arguments on which line
         ev3.screen.print("%s %s Start" % (name, format_tuple(args))) 
-        data.log(time.time(),"%s %s" % (name, format_tuple(args), robot.distance(),robot.angle()))
+        data.log(time.time(),"%s %s %d %d" % (name, format_tuple(args), robot.distance(),robot.angle()))
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)

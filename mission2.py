@@ -22,7 +22,7 @@ def run():
     
     d.straight(650)
 
-    d.turn(90)
+    d.turn(105)
 
     d.straight(80)
 
@@ -37,6 +37,10 @@ def run():
     d.straight(700)
 
     d.motor_stop()
+
+
+
+    
 
 # Code to retrieve package
 def crane2():
