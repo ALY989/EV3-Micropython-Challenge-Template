@@ -62,8 +62,6 @@ def run():
 
     d.straight(1300)
 
-
-
     # Put what the robot should do for this mission here. 
 
 if __name__ == "__main__":
