@@ -106,7 +106,7 @@ def test_decorator(func):
         
         # Showing user which function is currently executing with what arguments on which line
         ev3.screen.print("%s %s Start" % (name, format_tuple(args))) 
-        data.log(time.time(),"%s %s" % (name, format_tuple(args), robot.distance(),robot.angle())
+        data.log(time.time(),"%s %s" % (name, format_tuple(args), robot.distance(),robot.angle()))
 		
 		# getting the returned value
         returned_value = func(*args, **kwargs)
