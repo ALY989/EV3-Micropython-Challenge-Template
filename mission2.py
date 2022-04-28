@@ -32,7 +32,7 @@ def run():
 
     d.run_target(1000, 45)
 
-    d.turn(100)
+    d.turn(110)
 
     d.straight(700)
 

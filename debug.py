@@ -149,7 +149,7 @@ def straight(distance):
 @test_decorator
 def turn(angle):
 
-    invoker.run(robot.turn(angle))
+    robot.turn(angle)
 
 @test_decorator
 def drive(speed, angle):

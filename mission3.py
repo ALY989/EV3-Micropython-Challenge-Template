@@ -20,17 +20,17 @@ def run():
 
     d.straight(1210)
 
-    d.turn(-97)
+    d.turn(-105)
 
     d.straight(250)
 
-    d.turn(-97)
+    d.turn(-110)
 
     d.run_until_stalled(-1000)
 
     d.reset_angle(0)
 
-    d.run_target(1000, 45)
+    d.run_target(1000, 35)
 
     d.straight(270)
 
@@ -42,7 +42,7 @@ def run():
 
     d.straight(125)
 
-    d.turn(-115)
+    d.turn(-105)
 
     d.run_until_stalled(-1000)
 
@@ -52,16 +52,21 @@ def run():
 
     d.straight(300)
 
-    d.straight(-300)
+    d.straight(-150)
 
-    d.turn(180)
+    d.run_until_stalled(1000)
 
-    d.straight(700)
+    d.turn(-100)
+
+    d.straight(400)
     
-    d.turn(90)
+    d.turn(102)
 
     d.straight(1300)
 
+    d.turn(-90)
+
+    d.straight(1000)
     # Put what the robot should do for this mission here. 
 
 if __name__ == "__main__":
