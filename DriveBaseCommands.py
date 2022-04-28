@@ -1,9 +1,15 @@
 import debug as d
 from debug import test_decorator
+import time
+import datetime
+from datetime import datetime
+
+
+# No Time. Deprecated
 
 class RobotCommand:
 
-    def run():
+    def execute():
 
         pass
 
@@ -13,7 +19,7 @@ class RobotCommand:
 
 class RobotStraight(Command):
 
-    def run(distance):
+    def execute(distance):
 
         d.straight(distance)
 
@@ -27,6 +33,12 @@ class Invoker:
         self._commands = {}  # It registers all the commands
 
         self._history = []  # It registers the command objects in the order they were called.
+        
+    def show_variables(self):
+        
+        print(self._history)
+        
+        print(self._commands)
 
     def show_history(self):
 
@@ -38,21 +50,21 @@ class Invoker:
 
         self._commands[command_name] = command
 
-    def execute(self, command_name):
+    def execute(self, command_name, *args):
 
         if command_name in self._commands.keys():
 
-            self._commands[command_name].execute()
+            self._commands[command_name].execute(*args)
 
-            self._history.append((time.time(), command_name))
+            self._history.append((time.time(), (command_name, *args)))
 
-    def undo(self, command_name):
+    def undo(self, command_name, *args):
 
         if command_name in self._commands.keys():
 
-            self._commands[command_name].undo()
+            self._commands[command_name].undo(*args)
 
-            self._history.append((time.time(), "Undo"))
+            self._history.append((time.time(), (f"Undid {command_name} using argument(s)", *args)))
 
 
     def replay_last(self, number_of_commands=1):
@@ -69,15 +81,11 @@ class Invoker:
 
             self.execute(command[1])  # The command will be replayed and the action will be logged
 
-    def undo_last(self, number_of_commands=1):
+straight = RobotStraight()
+invoker = Invoker()
 
-        """Redoes the last N commands"""
+invoker.register("straight", straight)
 
-        commands = self._history[-number_of_commands:]
+invoker.execute("straight", 1000)
 
-        for command in commands:
-
-            # The below line will just undo the code, it will not be logged in history
-            # self._commands[command[1]].undo()
-
-            self.undo(command[1])  # The command will be undone and the action will be logged
+invoker.undo()
