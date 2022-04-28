@@ -6,6 +6,7 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile, Font
+import datetime
 import time
 
 # This file contains all of the inbuilt functions for the robot wrapped in the test_decorator.
@@ -94,6 +95,82 @@ data = DataLog("Time", "Line", "Distance", "Angle", extension="txt")
 #         robot.drive(0, 100)
 #     robot.stop()
 
+class Command:
+
+    def run():
+
+        pass
+
+    def undo():
+
+        pass
+
+class RobotStraight(Command):
+
+    robot.straight()
+
+class Invoker:
+    def __init__(self):
+
+        self._commands = {}  # It registers all the commands
+
+        self._history = []  # It registers the command objects in the order they were called.
+
+    def show_history(self):
+
+        for row in self._history:
+
+            print(f"{datetime.fromtimestamp(row[0]).strftime('%H:%M:%S')}", f" : {row[1]}")
+
+    def register(self, command_name, command):
+
+        self._commands[command_name] = command
+
+    def execute(self, command_name):
+
+        if command_name in self._commands.keys():
+
+            self._commands[command_name].execute()
+
+            self._history.append((time.time(), command_name))
+
+    def undo(self, command_name):
+
+        if command_name in self._commands.keys():
+
+            self._commands[command_name].undo()
+
+            self._history.append((time.time(), "Undo"))
+
+
+    def replay_last(self, number_of_commands=1):
+
+        """Replay the last N commands"""
+
+        commands = self._history[-number_of_commands:]
+
+        for command in commands:
+
+
+            # The below line will just replay the code, it will not be logged in history
+            # self._commands[command[1]].execute()
+
+            self.execute(command[1])  # The command will be replayed and the action will be logged
+
+    def undo_last(self, number_of_commands=1):
+
+        """Redoes the last N commands"""
+
+        commands = self._history[-number_of_commands:]
+
+        for command in commands:
+
+            # The below line will just undo the code, it will not be logged in history
+            # self._commands[command[1]].undo()
+
+            self.undo(command[1])  # The command will be undone and the action will be logged
+
+
 def format_tuple(value):
     return "(" + ",".join(repr(v) for v in value) + ")"
 
@@ -136,6 +213,7 @@ def ev3_print(printable):
 
     ev3.screen.print(printable)
 
+@test_decorator
 def ev3_beep():
 
     ev3.speaker.beep()
@@ -148,7 +226,7 @@ def straight(distance):
 @test_decorator
 def turn(angle):
 
-    robot.turn(angle)
+    invoker.run(robot.turn(angle))
 
 @test_decorator
 def drive(speed, angle):

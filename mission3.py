@@ -54,6 +54,16 @@ def run():
 
     d.straight(-300)
 
+    d.turn(180)
+
+    d.straight(700)
+    
+    d.turn(90)
+
+    d.straight(1300)
+
+
+
     # Put what the robot should do for this mission here. 
 
 if __name__ == "__main__":

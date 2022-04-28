@@ -39,6 +39,16 @@ def run():
     d.straight(-10)
     m.bang(10000,10)
 
+    # Going home now
+
+    d.turn(40)
+
+    d.straight(450)
+
+    d.turn(90)
+
+    d.straight(1300)
+
 
 if __name__ == "__main__":
     
