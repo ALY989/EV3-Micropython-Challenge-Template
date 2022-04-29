@@ -19,9 +19,9 @@ def run():
     m.startup()
 
     #hammer.run_target(1000,70)
-    d.straight(1200)
+    d.straight(1250)
     d.turn(-100)
-    d.straight(410)
+    d.straight(400)
     d.turn(50)
     d.straight(-35)
     # d.reset_angle(180)
@@ -41,7 +41,7 @@ def run():
 
     # Going home now
 
-    d.turn(40)
+    d.turn(90)
 
     d.straight(450)
 

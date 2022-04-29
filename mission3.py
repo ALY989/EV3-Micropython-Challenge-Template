@@ -18,19 +18,19 @@ def run():
 
     m.startup()
 
-    d.straight(1210)
+    d.straight(1250)
 
     d.turn(-105)
 
     d.straight(250)
 
-    d.turn(-110)
+    d.turn(-105)
 
     d.run_until_stalled(-1000)
 
     d.reset_angle(0)
 
-    d.run_target(1000, 35)
+    d.run_target(1000, 40)
 
     d.straight(270)
 
@@ -42,13 +42,13 @@ def run():
 
     d.straight(125)
 
-    d.turn(-105)
+    d.turn(-100)
 
     d.run_until_stalled(-1000)
 
     d.reset_angle(0)
 
-    d.run_target(1000, 35)
+    d.run_target(1000, 40)
 
     d.straight(300)
 
@@ -60,7 +60,7 @@ def run():
 
     d.straight(400)
     
-    d.turn(102)
+    d.turn(100)
 
     d.straight(1300)
 
