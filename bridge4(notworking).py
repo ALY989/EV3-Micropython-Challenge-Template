@@ -20,14 +20,15 @@ def run():
 
     m.startup()
 
-    d.straight(1610)
-    d.turn (-720)
-    d.turn(-90)
+    d.straight(1300)
+    d.turn(90)
     d.straight(25)
-    d.turn(220)
-    d.straight(125)
-   # robot.turn (-720)
-    #robot.straight (1700)
+    d.run_target(1000, 90)
+    d.straight (-25)
+    d.run_target(1000, 0)
+    d.turn(90)
+    d.straight(1300)
+    
 
 
 if __name__ == "__main__":

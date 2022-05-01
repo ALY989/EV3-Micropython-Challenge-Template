@@ -20,7 +20,7 @@ def run():
     
     d.straight(800)
     d.turn(75)
-    d.straight(700)
+    d.straight(650)
 
     d.turn(-180)
     d.straight(1000)

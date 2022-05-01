@@ -60,7 +60,7 @@ def run():
 
     d.straight(400)
     
-    d.turn(100)
+    d.turn(95)
 
     d.straight(1300)
 
