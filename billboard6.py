@@ -20,7 +20,7 @@ def run():
 
     m.startup()
 
-    d.straight(569)
+    d.straight(580)
     d.straight(-650)
 
 if __name__ == "__main__":

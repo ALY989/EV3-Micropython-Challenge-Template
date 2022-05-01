@@ -18,15 +18,15 @@ def run():
 
     m.startup()
     
-    d.straight(750)
-    d.turn(75)
     d.straight(800)
+    d.turn(75)
+    d.straight(700)
 
-    d.straight(-800)
+    d.turn(-180)
+    d.straight(1000)
+    d.turn(90)
+    d.straight(450)
 
-    d.turn(-75)
-
-    d.straight(-800)
 
 if __name__ == "__main__":
     
